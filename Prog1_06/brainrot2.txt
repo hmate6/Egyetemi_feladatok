@@ -1,0 +1,65 @@
+1: Melyik karakter vagyok? — Kódrészlet → Fogalom párosítás
+
+class Kutya { ... }; -> OSZTÁLY / Osztály Olga
+Kutya k("Rex"); -> OBJEKTUM (PÉLDÁNYOSÍTÁS) / Objektum Oszkár (Példányosító Pál)
+Kutya(string n) { nev=n; } -> KONSTRUKTOR / Konstruktor Kristóf
+~Kutya() { delete adat; } -> DESTRUKTOR / Destruktor Dezső
+class Kutya : public Allat -> ÖRÖKLŐDÉS / Öröklődő Olivér
+virtual void hangotAd() = 0; -> PURE VIRTUAL (ABSZTRAKT OSZTÁLY) / Absztrakt Anikó
+void f() override { ... } -> FELÜLÍRÁS (POLIMORFIZMUS) / Polimorf Péter
+private: int egyenleg; -> ENKAPSZULÁCIÓ (ADATREJTÉS) / Bezáró Bence
+Allat* a = new Kutya(); a->hangotAd(); -> DINAMIKUS KÖTÉS / Late Binding Lajos
+
+2: Töltsd ki a hiányzó részeket!
+
+a) rész (Kristóf és Dezső):
+blank részek kitöltése sorban:
+
+Auto
+
+~
+
+ev
+
+b) rész (Bence):
+blank részek kitöltése sorban:
+
+private
+
+protected
+
+public
+
+c) rész (Péter):
+Kimenetek sorban: Vau! , Miau! , Vau! (vagy a megírt hangok az osztályimplementáció szerint)
+
+Feladat: Absztrakt Anikó vs Interfész István — mi a különbség?
+
+X = INTERFÉSZ, mert csak és kizárólag tisztán absztrakt (pure virtual) metódusai vannak implementáció nélkül, és nem tartalmaz adatot (változót).
+
+Y = ABSZTRAKT OSZTÁLY, mert bár van pure virtual függvénye (mozog), tartalmaz konkrét implementációval rendelkező metódust (legzik) és adattagot (energia változó) is.
+
+3: Early Eddie vs Late Binding Lajos — mikor melyik?
+
+Kutya k; k.ugat(); (ugat nem virtual) -> EARLY
+Allat* a = new Kutya(); a->hangotAd(); (virtual) -> LATE
+osszeAdd(3,4); (template) -> EARLY
+Függvény overloading (f(int) vs f(double)) -> EARLY
+virtual void f() = 0; leszármazotton hívva -> LATE
+
+4: Tervezz egy mini osztályhierarchiát! (Példa megoldás)
+
+Szint (Absztrakt ős): class Jarmu {
+private: std::string alvazszam;
+protected: int sebesseg = 0;
+public: virtual void indit() = 0; // Pure virtual, Anikó miatt absztrakt!
+virtual ~Jarmu() = default; };
+
+Szint (Köztes öröklés): class MotorosJarmu : public Jarmu {
+protected: int uzemanyagSzint = 100;
+public: void indit() override { sebesseg = 5; } // Felülírás, Péter arca
+virtual void tankol() = 0; }; // Újabb pure virtual szint
+
+Szint (Konkrét osztály): class Auto : public MotorosJarmu {
+public: void tankol() override { uzemanyagSzint = 100; } // Végleges megvalósítás
+void dudal() { std::cout << "Tütű!"; } }; // Saját, konkrét metódus
