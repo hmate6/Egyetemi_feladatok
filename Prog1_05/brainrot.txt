@@ -1,0 +1,44 @@
+1: Melyik karakter vagyok?
+
+int x = 10; -> Változó Vlad
+int* p = &x; -> Pointer Pete
+void f(int x) { x=99; } -> Xerox Chad
+void f(int& x) { x=99; } -> Key Dealer Kevin
+int* p = nullptr; -> Null Nick
+{ int n=5; } // n meghal -> Scope Sensei
+template T add(T a, T b) -> Generic Greg
+return n * f(n-1); -> Recursion Rick
+
+2: Töltsd ki a hiányzó részeket!
+
+a) rész:
+int chad = 5; (bármilyen szám)
+chad értéke még mindig: 5 (mivel csak a másolat változott meg)
+
+b) rész:
+kimenet: 77 (pointeren keresztül az eredeti változó értékét írtuk át)
+
+c) rész:
+if (n == 0) return 0; (vagy: if (n == 1) return 1;)
+osszeg(4) = 4+3+2+1+0 = 10
+
+3: Melyik Boss Karakter jelenik meg?
+
+a) rész: SEGFAULT SAMU
+Miért: Mert a kód egy null pointert (nullptr) próbál dereferenciálni (megnyitni), azaz a semmiben akar egy értékhez hozzáférni, amitől a program azonnal összeomlik.
+
+b) rész: MEMORY LEAK MIKI
+Miért: Mert a malloc() függvénnyel lefoglaltunk egy memóriaterületet, de elfelejtettük felszabadítani a free() paranccsal. A memória így lefoglalva marad, ami memóriaszivárgáshoz vezet.
+
+c) rész: STACK OVERFLOW STAN
+Miért: Mert a függvénynek nincs kilépési feltétele (base case), így végtelen rekurzióba lép. Önmagát hívogatja, amíg a hívási verem (call stack) teljesen meg nem telik, és a program össze nem omlik.
+
+4: Saját Brainrot Karakter (Példa megoldás)
+
+Név: Konstans Konrád
+Fogalom: const kulcsszó
+Személyiség: Egy rendíthetetlen, makacs figura, aki gyűlöli a változást. Ha egyszer értéket kap, azt az életben többet senki nem módosíthatja. Ha mégis megpróbálod megváltoztatni, a fordító azonnal rád kiabál.
+Idézet: "Amilyen vagyok, olyan maradok. Ne próbálj megváltoztatni!"
+Kódpélda:
+const int konrad = 100;
+konrad = 200; // Fordítási hiba, Konrád megváltoztathatatlan
